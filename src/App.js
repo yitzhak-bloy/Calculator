@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Calculator from './calculator'
 
 function App() {
   return (
     <div className="App">
-      <h1>שלום עולם</h1>
+      <Calculator />
     </div>
   );
 }

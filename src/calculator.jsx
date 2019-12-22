@@ -15,6 +15,11 @@ function Calculator() {
         <button id="seven">7</button>
         <button id="eight">8</button>
         <button id="nine">9</button>
+        <button id="add">+</button>
+        <button id="subtract">-</button>
+        <button id="multiply">*</button>
+        <button id="divide">/</button>
+
       </div>
     );
   }

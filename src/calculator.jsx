@@ -19,7 +19,8 @@ function Calculator() {
         <button id="subtract">-</button>
         <button id="multiply">*</button>
         <button id="divide">/</button>
-
+        <button id="decimal">.</button>
+        <button id="clear">clear</button>
       </div>
     );
   }

@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 function Calculator() {
 
   const [sumInDisplay, setsumInDisplay] = useState('0');
+  const [sum1InDisplay, setsum1InDisplay] = useState();
+  
 
   return (
     <div className="Calculator">
       <h1>מחשבון</h1>
-      <button id="equals">=</button>
+      <button id="equals" onClick={(sumInDisplay) => setsum1InDisplay(eval(sumInDisplay))} >=</button>
       <button id="zero" onClick={() => setsumInDisplay(sumInDisplay + '0')} >0</button>
       <button id="one" onClick={() => setsumInDisplay(sumInDisplay + '1')} >1</button>
       <button id="two" onClick={() => setsumInDisplay(sumInDisplay + '2')} >2</button>
@@ -25,6 +27,8 @@ function Calculator() {
       <button id="decimal" onClick={() => setsumInDisplay(sumInDisplay + '.')} >.</button>
       <button id="clear" onClick={() => setsumInDisplay('0')} >clear</button>
       <div id='display'>{sumInDisplay}</div>
+      <div id='display1'>{sum1InDisplay}</div>
+
 {      console.log(sumInDisplay)
 }    </div>
   );

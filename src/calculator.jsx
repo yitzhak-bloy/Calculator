@@ -1,37 +1,60 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-function Calculator() {
+  class Calculator extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        count: '',
+        sum: undefined
+      };
+    }
 
-  const [sumInDisplay, setsumInDisplay] = useState('0');
-  const [sum1InDisplay, setsum1InDisplay] = useState();
+  handleClick = (event)  => {
+    this.setState({
+      count: this.state.count + event.target.value
+    })
+  }
   
+  handleSum = ()  => {
+    this.setState({
+      sum: eval(this.state.count)
+    })
+  }
 
-  return (
-    <div className="Calculator">
-      <h1>מחשבון</h1>
-      <button id="equals" onClick={(sumInDisplay) => setsum1InDisplay(eval(sumInDisplay))} >=</button>
-      <button id="zero" onClick={() => setsumInDisplay(sumInDisplay + '0')} >0</button>
-      <button id="one" onClick={() => setsumInDisplay(sumInDisplay + '1')} >1</button>
-      <button id="two" onClick={() => setsumInDisplay(sumInDisplay + '2')} >2</button>
-      <button id="three" onClick={() => setsumInDisplay(sumInDisplay + '3')} >3</button>
-      <button id="four" onClick={() => setsumInDisplay(sumInDisplay + '4')} >4</button>
-      <button id="five" onClick={() => setsumInDisplay(sumInDisplay + '5')} >5</button>
-      <button id="six" onClick={() => setsumInDisplay(sumInDisplay + '6')} >6</button>
-      <button id="seven" onClick={() => setsumInDisplay(sumInDisplay + '7')} >7</button>
-      <button id="eight" onClick={() => setsumInDisplay(sumInDisplay + '8')} >8</button>
-      <button id="nine" onClick={() => setsumInDisplay(sumInDisplay + '9')} >9</button>
-      <button id="add" onClick={() => setsumInDisplay(sumInDisplay + '+')} >+</button>
-      <button id="subtract" onClick={() => setsumInDisplay(sumInDisplay + '-')} >-</button>
-      <button id="multiply" onClick={() => setsumInDisplay(sumInDisplay + '*')} >*</button>
-      <button id="divide" onClick={() => setsumInDisplay(sumInDisplay + '/')} >/</button>
-      <button id="decimal" onClick={() => setsumInDisplay(sumInDisplay + '.')} >.</button>
-      <button id="clear" onClick={() => setsumInDisplay('0')} >clear</button>
-      <div id='display'>{sumInDisplay}</div>
-      <div id='display1'>{sum1InDisplay}</div>
+  handleclear = ()  => {
+    this.setState({
+      count: '',
+      sum: undefined
+    })
+  }
 
-{      console.log(sumInDisplay)
-}    </div>
-  );
+  render() {
+    return (
+      <div className="Calculator">
+        <h1>מחשבון</h1>
+        <button id="equals" value={'='} onClick={this.handleSum}>=</button>
+        <button id="zero" value={'0'} onClick={this.handleClick} >0</button>
+        <button id="one" value={'1'} onClick={this.handleClick} >1</button>
+        <button id="two" value={'2'} onClick={this.handleClick} >2</button>
+        <button id="three" value={'3'} onClick={this.handleClick} >3</button>
+        <button id="four" value={'4'} onClick={this.handleClick} >4</button>
+        <button id="five" value={'5'} onClick={this.handleClick} >5</button>
+        <button id="six" value={'6'} onClick={this.handleClick} >6</button>
+        <button id="seven" value={'7'} onClick={this.handleClick} >7</button>
+        <button id="eight" value={'8'} onClick={this.handleClick} >8</button>
+        <button id="nine" value={'9'} onClick={this.handleClick} >9</button>
+        <button id="add" value={'+'} onClick={this.handleClick} >+</button>
+        <button id="subtract" value={'-'} onClick={this.handleClick} >-</button>
+        <button id="multiply" value={'*'} onClick={this.handleClick} >*</button>
+        <button id="divide" value={'/'} onClick={this.handleClick} >/</button>
+        <button id="decimal" value={'.'} onClick={this.handleClick} >.</button>
+        <button id="clear" value={'0'} onClick={this.handleclear} >clear</button>
+        <div id='display'>{this.state.count}</div>
+        <div id='display1'>{this.state.sum}</div>
+      </div>
+    );
+  }
+
 }
   
 export default Calculator;

@@ -5,14 +5,20 @@ import React, { Component } from 'react';
       super(props);
       this.state = {
         count: '',
-        sum: undefined
+        sum: ''
       };
     }
 
   handleClick = (event)  => {
-    this.setState({
-      count: this.state.count + event.target.value
-    })
+    if ((this.state.count + event.target.value) === '0') {
+      this.setState({
+        count: ''
+      })
+    } else {
+      this.setState({
+        count: this.state.count + event.target.value
+      })
+    }
   }
   
   handleSum = ()  => {
@@ -49,7 +55,7 @@ import React, { Component } from 'react';
         <button id="divide" value={'/'} onClick={this.handleClick} >/</button>
         <button id="decimal" value={'.'} onClick={this.handleClick} >.</button>
         <button id="clear" value={'0'} onClick={this.handleclear} >clear</button>
-        <div id='display'>{this.state.count}</div>
+        <div id='display'>{this.state.count ? this.state.count : '0'}</div>
         <div id='display1'>{this.state.sum}</div>
       </div>
     );

@@ -9,10 +9,24 @@ import React, { Component } from 'react';
       };
     }
 
+    // event.target.value === ('+' || '*' || '/' || '-')
+
   handleClick = (event)  => {
     if ((this.state.count + event.target.value) === '0') {
       this.setState({
         count: ''
+      })
+    } else {
+      this.setState({
+        count: this.state.count + event.target.value
+      })
+    }
+  }
+
+  handleClickOfOperations = (event)  => {
+    if (/[*]$|[+]$|[-]$|[/]$/.test(this.state.count) && /[*]$|[+]$|[/]$/.test(event.target.value)) {
+      this.setState({
+      count: this.state.count.replace(/[*]$|[+]$|[-]$|[/]$/, event.target.value)
       })
     } else {
       this.setState({
@@ -49,10 +63,10 @@ import React, { Component } from 'react';
         <button id="seven" value={'7'} onClick={this.handleClick} >7</button>
         <button id="eight" value={'8'} onClick={this.handleClick} >8</button>
         <button id="nine" value={'9'} onClick={this.handleClick} >9</button>
-        <button id="add" value={'+'} onClick={this.handleClick} >+</button>
-        <button id="subtract" value={'-'} onClick={this.handleClick} >-</button>
-        <button id="multiply" value={'*'} onClick={this.handleClick} >*</button>
-        <button id="divide" value={'/'} onClick={this.handleClick} >/</button>
+        <button id="add" value={'+'} onClick={this.handleClickOfOperations} >+</button>
+        <button id="subtract" value={'-'} onClick={this.handleClickOfOperations} >-</button>
+        <button id="multiply" value={'*'} onClick={this.handleClickOfOperations} >*</button>
+        <button id="divide" value={'/'} onClick={this.handleClickOfOperations} >/</button>
         <button id="decimal" value={'.'} onClick={this.handleClick} >.</button>
         <button id="clear" value={'0'} onClick={this.handleclear} >clear</button>
         <div id='display'>{this.state.count ? this.state.count : '0'}</div>

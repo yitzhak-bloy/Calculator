@@ -28,7 +28,12 @@ import React, { Component } from 'react';
       this.setState({
       count: this.state.count.replace(/[*]$|[+]$|[-]$|[/]$/, event.target.value)
       })
-    } else {
+    } else if (this.state.sum) {
+      this.setState({
+        count: this.state.sum + event.target.value
+      })
+    }
+     else {
       this.setState({
         count: this.state.count + event.target.value
       })
@@ -37,6 +42,7 @@ import React, { Component } from 'react';
   
   handleSum = ()  => {
     this.setState({
+      // count: eval(this.state.count),
       sum: eval(this.state.count)
     })
   }

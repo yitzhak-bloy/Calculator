@@ -9,8 +9,6 @@ import React, { Component } from 'react';
       };
     }
 
-    // event.target.value === ('+' || '*' || '/' || '-')
-
   handleClick = (event)  => {
     if ((this.state.count + event.target.value) === '0') {
       this.setState({
@@ -26,14 +24,16 @@ import React, { Component } from 'react';
   handleClickOfOperations = (event)  => {
     if (/[*]$|[+]$|[-]$|[/]$/.test(this.state.count) && /[*]$|[+]$|[/]$/.test(event.target.value)) {
       this.setState({
-      count: this.state.count.replace(/[*]$|[+]$|[-]$|[/]$/, event.target.value)
+        count: this.state.count.replace(/[*]$|[+]$|[-]$|[/]$/, event.target.value)
       })
+    } else if ( this.state.count === '' && (event.target.value === '*' || event.target.value === '/')) {
+        console.log('לא חוקי');
     } else if (this.state.sum) {
-      this.setState({
-        count: this.state.sum + event.target.value
-      })
-    }
-     else {
+        this.setState({
+          count: this.state.sum + event.target.value,
+          sum: ''
+        })
+    } else {
       this.setState({
         count: this.state.count + event.target.value
       })
@@ -41,16 +41,19 @@ import React, { Component } from 'react';
   }
   
   handleSum = ()  => {
-    this.setState({
-      // count: eval(this.state.count),
-      sum: eval(this.state.count)
-    })
+    if (/[*]$|[+]$|[-]$|[/]$/.test(this.state.count) || /^[*]|^[/]/.test(this.state.count) ) {
+      console.log('לא חוקי')
+    } else {
+      this.setState({
+        sum: eval(this.state.count)
+      })
+    }
   }
 
   handleclear = ()  => {
     this.setState({
       count: '',
-      sum: undefined
+      sum: ''
     })
   }
 
@@ -58,7 +61,7 @@ import React, { Component } from 'react';
     return (
       <div className="Calculator">
         <h1>מחשבון</h1>
-        <button id="equals" value={'='} onClick={this.handleSum}>=</button>
+        <button id="equals" value={'='} onClick={this.handleSum} >=</button>
         <button id="zero" value={'0'} onClick={this.handleClick} >0</button>
         <button id="one" value={'1'} onClick={this.handleClick} >1</button>
         <button id="two" value={'2'} onClick={this.handleClick} >2</button>
@@ -75,12 +78,15 @@ import React, { Component } from 'react';
         <button id="divide" value={'/'} onClick={this.handleClickOfOperations} >/</button>
         <button id="decimal" value={'.'} onClick={this.handleClick} >.</button>
         <button id="clear" value={'0'} onClick={this.handleclear} >clear</button>
-        <div id='display'>{this.state.count ? this.state.count : '0'}</div>
-        <div id='display1'>{this.state.sum}</div>
+        <div id='display'>
+          <div id='displayCount'>{this.state.count ? this.state.count : '0'}</div>
+          <div id='displaySum'></div>
+          {this.state.sum}
+        </div>
+        <div id='display1'></div>
       </div>
     );
   }
-
 }
   
 export default Calculator;

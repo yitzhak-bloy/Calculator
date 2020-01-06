@@ -50,6 +50,20 @@ import React, { Component } from 'react';
     }
   }
 
+  handleDecimal = (event)  => {
+    if ((this.state.count + event.target.value) === '0') {
+      this.setState({
+        count: ''
+      })
+    } else if (/[.]+/.test(this.state.count)) {
+      console.log('לא חוקי')
+    } else {
+      this.setState({
+        count: this.state.count + event.target.value
+      })
+    }
+  }
+
   handleclear = ()  => {
     this.setState({
       count: '',
@@ -76,12 +90,11 @@ import React, { Component } from 'react';
         <button id="subtract" value={'-'} onClick={this.handleClickOfOperations} >-</button>
         <button id="multiply" value={'*'} onClick={this.handleClickOfOperations} >*</button>
         <button id="divide" value={'/'} onClick={this.handleClickOfOperations} >/</button>
-        <button id="decimal" value={'.'} onClick={this.handleClick} >.</button>
+        <button id="decimal" value={'.'} onClick={this.handleDecimal } >.</button>
         <button id="clear" value={'0'} onClick={this.handleclear} >clear</button>
         <div id='display'>
           <div id='displayCount'>{this.state.count ? this.state.count : '0'}</div>
-          <div id='displaySum'></div>
-          {this.state.sum}
+          <div id='displaySum'>{this.state.sum}</div>
         </div>
         <div id='display1'></div>
       </div>

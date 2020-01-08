@@ -75,23 +75,23 @@ import './calculator.css';
         <h1 className='h1h'>מחשבון</h1>
         <div className='calculatorBody'>
           <Display count={this.state.count} sum={this.state.sum} />
-          <button id="equals" value={'='} onClick={this.handleSum} >=</button>
+          <button id="clear" value={'0'} onClick={this.handleclear} >clear</button> 
           <button id="zero" value={'0'} onClick={this.handleClick} >0</button>
+          <button id="divide" value={'/'} onClick={this.handleClickOfOperations} >/</button>
+          <button id="multiply" value={'*'} onClick={this.handleClickOfOperations} >&#10005;</button>
           <button id="one" value={'1'} onClick={this.handleClick} >1</button>
           <button id="two" value={'2'} onClick={this.handleClick} >2</button>
           <button id="three" value={'3'} onClick={this.handleClick} >3</button>
+          <button id="add" value={'+'} onClick={this.handleClickOfOperations} >+</button>
           <button id="four" value={'4'} onClick={this.handleClick} >4</button>
           <button id="five" value={'5'} onClick={this.handleClick} >5</button>
           <button id="six" value={'6'} onClick={this.handleClick} >6</button>
+          <button id="subtract" value={'-'} onClick={this.handleClickOfOperations} >-</button>
           <button id="seven" value={'7'} onClick={this.handleClick} >7</button>
           <button id="eight" value={'8'} onClick={this.handleClick} >8</button>
           <button id="nine" value={'9'} onClick={this.handleClick} >9</button>
-          <button id="add" value={'+'} onClick={this.handleClickOfOperations} >+</button>
-          <button id="subtract" value={'-'} onClick={this.handleClickOfOperations} >-</button>
-          <button id="multiply" value={'*'} onClick={this.handleClickOfOperations} >*</button>
-          <button id="divide" value={'/'} onClick={this.handleClickOfOperations} >/</button>
+          <button id="equals" value={'='} onClick={this.handleSum} >=</button>
           <button id="decimal" value={'.'} onClick={this.handleDecimal } >.</button>
-          <button id="clear" value={'0'} onClick={this.handleclear} >clear</button>
         </div>
       </div>
     );

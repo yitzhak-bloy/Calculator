@@ -25,6 +25,30 @@ h1 {
   margin-right: -50%;
   transform: translate(-50%, -50%);
   display: grid;
-  
+  grid-template-columns: 60px 60px 60px 60px ;
+  grid-template-rows: 60px 60px 60px 60px 60px 60px;
 }
 
+.calculatorBody > :nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.calculatorBody > :nth-child(2) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.calculatorBody > :nth-child(17) {
+  grid-row-start: 5;
+  grid-row-end: 7;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+.calculatorBody > :nth-child(3) {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}

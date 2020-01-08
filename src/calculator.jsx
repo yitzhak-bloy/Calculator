@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import  Display from './display'
 import './calculator.css';
 
   class Calculator extends Component {
@@ -93,11 +94,7 @@ import './calculator.css';
         <button id="divide" value={'/'} onClick={this.handleClickOfOperations} >/</button>
         <button id="decimal" value={'.'} onClick={this.handleDecimal } >.</button>
         <button id="clear" value={'0'} onClick={this.handleclear} >clear</button>
-        <div id='display'>
-          <div id='displayCount'>{this.state.count ? this.state.count : '0'}</div>
-          <div id='displaySum'>{this.state.sum}</div>
-        </div>
-        <div id='display1'></div>
+        <Display count={this.state.count} sum={this.state.sum} />
       </div>
     );
   }

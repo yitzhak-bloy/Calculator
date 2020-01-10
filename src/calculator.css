@@ -45,3 +45,21 @@ h1 {
 .calculatorBody > :nth-child(3) {
   grid-area: 6 / 1 / 7 / 3;
 }
+
+button {
+  color: #000000 !important;
+  text-transform: uppercase;
+  background: #d4e7da;
+  border: 3px solid #236643 !important;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  color: #494949 !important;
+  border-radius: 15px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+  background: #a1ada5;
+  }

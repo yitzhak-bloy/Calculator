@@ -18,9 +18,9 @@ h1 {
   height: 45%;
   width: 35%;
   border: 1px solid black;
-  padding: 4px;
+  padding: 1%;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   /* margin-right: -50%; */
   transform: translate(-50%, -50%);
@@ -48,18 +48,25 @@ h1 {
 
 button {
   color: #000000 !important;
+  font-size: large;
   text-transform: uppercase;
-  background: #d4e7da;
-  border: 3px solid #236643 !important;
+  background: rgb(202, 192, 160, 0.5);
+  border: 3px solid rgb(123, 120, 104) !important;
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
+  
 }
 
 button:hover {
-  color: #494949 !important;
+  color: black !important;
   border-radius: 15px;
   border-color: #494949 !important;
   transition: all 0.3s ease 0s;
-  background: #a1ada5;
+  background: rgb(52, 72, 71, 0.5);
+  pointer-events: auto;
+}
+
+.operation {
+  background: rgb(52, 72, 71, 0.3);
 }

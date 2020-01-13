@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/yitzhak-bloy/calculator/static/css/main.2eef2f19.chunk.css",
+    "main.js": "/yitzhak-bloy/calculator/static/js/main.f03d02f2.chunk.js",
+    "main.js.map": "/yitzhak-bloy/calculator/static/js/main.f03d02f2.chunk.js.map",
+    "runtime-main.js": "/yitzhak-bloy/calculator/static/js/runtime-main.ff4dd297.js",
+    "runtime-main.js.map": "/yitzhak-bloy/calculator/static/js/runtime-main.ff4dd297.js.map",
+    "static/js/2.47ee50ec.chunk.js": "/yitzhak-bloy/calculator/static/js/2.47ee50ec.chunk.js",
+    "static/js/2.47ee50ec.chunk.js.map": "/yitzhak-bloy/calculator/static/js/2.47ee50ec.chunk.js.map",
+    "index.html": "/yitzhak-bloy/calculator/index.html",
+    "precache-manifest.460a4724177cead2bc0efaa9431713e6.js": "/yitzhak-bloy/calculator/precache-manifest.460a4724177cead2bc0efaa9431713e6.js",
+    "service-worker.js": "/yitzhak-bloy/calculator/service-worker.js",
+    "static/css/main.2eef2f19.chunk.css.map": "/yitzhak-bloy/calculator/static/css/main.2eef2f19.chunk.css.map",
+    "static/js/2.47ee50ec.chunk.js.LICENSE": "/yitzhak-bloy/calculator/static/js/2.47ee50ec.chunk.js.LICENSE",
+    "static/media/index.css": "/yitzhak-bloy/calculator/static/media/dustin-lee-jLwVAUtLOAQ-unsplash.ad2511e4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff4dd297.js",
+    "static/js/2.47ee50ec.chunk.js",
+    "static/css/main.2eef2f19.chunk.css",
+    "static/js/main.f03d02f2.chunk.js"
+  ]
+}

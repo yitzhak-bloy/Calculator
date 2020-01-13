@@ -16,6 +16,11 @@ import './calculator.css';
       this.setState({
         count: ''
       })
+    } else if (this.state.sum) {
+      this.setState({
+        count: event.target.value,
+        sum: ''
+      })
     } else {
       this.setState({
         count: this.state.count + event.target.value
@@ -72,7 +77,6 @@ import './calculator.css';
   render() {
     return (
       <div className="Calculator">
-        <h1 className='h1h'>מחשבון</h1>
         <div className='calculatorBody'>
           <Display count={this.state.count} sum={this.state.sum} />
           <button id="clear" className='operation' value={'0'} onClick={this.handleclear} >clear</button> 

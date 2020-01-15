@@ -2,25 +2,30 @@ import React, { Component } from 'react';
 import  Display from './display'
 import './calculator.css';
 
-  class Calculator extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        count: '',
-        sum: ''
-      };
-    }
+class Calculator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: '',
+      sum: ''
+    };
+  }
 
   handleClick = (event)  => {
     if ((this.state.count + event.target.value) === '0') {
       this.setState({
         count: ''
       })
+    } else if (event.target.value === '0' && this.state.sum) {
+        this.setState({
+          count: '',
+          sum: ''
+        })
     } else if (this.state.sum) {
-      this.setState({
-        count: event.target.value,
-        sum: ''
-      })
+        this.setState({
+          count: event.target.value,
+          sum: ''
+        })
     } else {
       this.setState({
         count: this.state.count + event.target.value

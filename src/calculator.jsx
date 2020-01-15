@@ -33,8 +33,8 @@ import './calculator.css';
       this.setState({
         count: this.state.count.replace(/[*]$|[+]$|[-]$|[/]$/, event.target.value)
       })
-    } else if ( this.state.count === '' && (event.target.value === '*' || event.target.value === '/')) {
-        console.log('לא חוקי');
+    } else if ((this.state.count === '' && (event.target.value === '*' || event.target.value === '/')) || (/[-]$/.test(this.state.count) && event.target.value === '-')) {
+        console.log('Invalid character');
     } else if (this.state.sum) {
         this.setState({
           count: this.state.sum + event.target.value,
@@ -49,7 +49,7 @@ import './calculator.css';
   
   handleSum = ()  => {
     if (/[*]$|[+]$|[-]$|[/]$/.test(this.state.count) || /^[*]|^[/]/.test(this.state.count) ) {
-      console.log('לא חוקי')
+      console.log('Invalid character')
     } else {
       this.setState({
         sum: eval(this.state.count)
@@ -59,7 +59,7 @@ import './calculator.css';
 
   handleDecimal = (event)  => {
     if ((/[.]/.test(this.state.count) && !(/[*]+|[+]+|[-]+|[/]+/.test(this.state.count)))) {
-      console.log('לא חוקי')
+      console.log('Invalid character')
     } else {
       this.setState({
         count: this.state.count + event.target.value
@@ -94,7 +94,7 @@ import './calculator.css';
           <button id="seven" value={'7'} onClick={this.handleClick} >7</button>
           <button id="eight" value={'8'} onClick={this.handleClick} >8</button>
           <button id="nine" value={'9'} onClick={this.handleClick} >9</button>
-          <button id="equals" className='operation' value={'='} onClick={this.handleSum} >=</button>
+          <button id="equals" className='operation' value={"="} onClick={this.handleSum} >=</button>
           <button id="decimal" value={'.'} onClick={this.handleDecimal } >.</button>
         </div>
       </div>

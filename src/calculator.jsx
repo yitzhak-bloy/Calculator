@@ -65,10 +65,12 @@ class Calculator extends Component {
   handleDecimal = (event)  => {
     if ((/[.]/.test(this.state.count) && !(/[*]+|[+]+|[-]+|[/]+/.test(this.state.count)))) {
       console.log('Invalid character')
+    } else if (/[.]$/.test(this.state.count)) {
+        console.log('Invalid character')
     } else {
-      this.setState({
-        count: this.state.count + event.target.value
-      })
+        this.setState({
+          count: this.state.count + event.target.value
+        })
     }
   }
 

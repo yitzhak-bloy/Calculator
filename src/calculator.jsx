@@ -11,7 +11,7 @@ class Calculator extends Component {
     };
   }
 
-  handleClick = (event)  => {
+  handleClickOfNumber = (event)  => {
     if ((this.state.count + event.target.value) === '0') {
       this.setState({
         count: ''
@@ -30,6 +30,18 @@ class Calculator extends Component {
       this.setState({
         count: this.state.count + event.target.value
       })
+    }
+  }
+
+  handleClickOfDecimal = (event)  => {
+    if ((/[.]/.test(this.state.count) && !(/[*]+|[+]+|[-]+|[/]+/.test(this.state.count)))) {
+      console.log('Invalid character')
+    } else if (/[.]$/.test(this.state.count)) {
+        console.log('Invalid character')
+    } else {
+        this.setState({
+          count: this.state.count + event.target.value
+        })
     }
   }
 
@@ -52,7 +64,7 @@ class Calculator extends Component {
     }
   }
   
-  handleSum = ()  => {
+  handleClickOfSum = ()  => {
     if (/[*]$|[+]$|[-]$|[/]$/.test(this.state.count) || /^[*]|^[/]/.test(this.state.count) ) {
       console.log('Invalid character')
     } else {
@@ -62,19 +74,7 @@ class Calculator extends Component {
     }
   }
 
-  handleDecimal = (event)  => {
-    if ((/[.]/.test(this.state.count) && !(/[*]+|[+]+|[-]+|[/]+/.test(this.state.count)))) {
-      console.log('Invalid character')
-    } else if (/[.]$/.test(this.state.count)) {
-        console.log('Invalid character')
-    } else {
-        this.setState({
-          count: this.state.count + event.target.value
-        })
-    }
-  }
-
-  handleclear = ()  => {
+  handleClickOfClear = ()  => {
     this.setState({
       count: '',
       sum: ''
@@ -86,23 +86,23 @@ class Calculator extends Component {
       <div className="Calculator">
         <div className='calculatorBody'>
           <Display count={this.state.count} sum={this.state.sum} />
-          <button id="clear" className='operation' value={'0'} onClick={this.handleclear} >clear</button> 
-          <button id="zero" value={'0'} onClick={this.handleClick} >0</button>
+          <button id="clear" className='operation' value={'0'} onClick={this.handleClickOfClear} >clear</button> 
+          <button id="zero" value={'0'} onClick={this.handleClickOfNumber} >0</button>
           <button id="divide" className='operation' value={'/'} onClick={this.handleClickOfOperations} >/</button>
           <button id="multiply" className='operation' value={'*'} onClick={this.handleClickOfOperations} >&#10005;</button>
-          <button id="one" value={'1'} onClick={this.handleClick} >1</button>
-          <button id="two" value={'2'} onClick={this.handleClick} >2</button>
-          <button id="three" value={'3'} onClick={this.handleClick} >3</button>
+          <button id="one" value={'1'} onClick={this.handleClickOfNumber} >1</button>
+          <button id="two" value={'2'} onClick={this.handleClickOfNumber} >2</button>
+          <button id="three" value={'3'} onClick={this.handleClickOfNumber} >3</button>
           <button id="add" className='operation' value={'+'} onClick={this.handleClickOfOperations} >+</button>
-          <button id="four" value={'4'} onClick={this.handleClick} >4</button>
-          <button id="five" value={'5'} onClick={this.handleClick} >5</button>
-          <button id="six" value={'6'} onClick={this.handleClick} >6</button>
+          <button id="four" value={'4'} onClick={this.handleClickOfNumber} >4</button>
+          <button id="five" value={'5'} onClick={this.handleClickOfNumber} >5</button>
+          <button id="six" value={'6'} onClick={this.handleClickOfNumber} >6</button>
           <button id="subtract" className='operation' value={'-'} onClick={this.handleClickOfOperations} >-</button>
-          <button id="seven" value={'7'} onClick={this.handleClick} >7</button>
-          <button id="eight" value={'8'} onClick={this.handleClick} >8</button>
-          <button id="nine" value={'9'} onClick={this.handleClick} >9</button>
-          <button id="equals" className='operation' value={"="} onClick={this.handleSum} >=</button>
-          <button id="decimal" value={'.'} onClick={this.handleDecimal } >.</button>
+          <button id="seven" value={'7'} onClick={this.handleClickOfNumber} >7</button>
+          <button id="eight" value={'8'} onClick={this.handleClickOfNumber} >8</button>
+          <button id="nine" value={'9'} onClick={this.handleClickOfNumber} >9</button>
+          <button id="equals" className='operation' value={"="} onClick={this.handleClickOfSum} >=</button>
+          <button id="decimal" value={'.'} onClick={this.handleClickOfDecimal} >.</button>
         </div>
       </div>
     );

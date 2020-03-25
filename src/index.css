@@ -16,3 +16,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.displayNumbers {
+  border: 1px solid black;
+  background: rgb(202, 192, 160, 0.5);
+  font-size: large;
+  text-align: end;
+}

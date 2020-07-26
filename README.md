@@ -1,6 +1,6 @@
 # Calculator (React)
 
-My project for for the [Build a calculator challenge](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator) as part of the curriculum for the Front End Libraries Certification on [freeCodeCamp](https://www.freecodecamp.org/). 
+My project for the [Build a calculator challenge](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator) as part of the curriculum for the Front End Libraries Certification on [freeCodeCamp](https://www.freecodecamp.org/). 
 
 
 

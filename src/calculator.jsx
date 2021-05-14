@@ -64,7 +64,9 @@ const Calculator = () => {
         <button id="zero" value={'0'} onClick={handleClickOfNumber} >0</button>
         <button id="divide" className='operation' value={'/'} onClick={handleClickOfOperations} >/</button>
         <button id="multiply" className='operation' value={'*'} onClick={handleClickOfOperations} >&#10005;</button>
-        <button id="one" value={'1'} onClick={handleClickOfNumber} >1</button>
+        {/* דבדגב */}
+        <button id="one" value={'1'} onClick={handleClickOfNumber} >1</button> 
+        {/* דגבדגב */}
         <button id="two" value={'2'} onClick={handleClickOfNumber} >2</button>
         <button id="three" value={'3'} onClick={handleClickOfNumber} >3</button>
         <button id="add" className='operation' value={'+'} onClick={handleClickOfOperations} >+</button>

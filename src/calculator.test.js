@@ -1,12 +1,91 @@
 import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Calculator from "./calculator";
 
-afterEach(cleanup);
+describe("Buttons", () => {
+  test('"The number 1 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const oneButton = screen.getByRole("button", { name: /1/i });
+    userEvent.click(oneButton);
+    expect(screen.getAllByText(/1/i)[1]).toBeInTheDocument();
+  });
 
-it("1 butten should equal to 1", () => {
-  render(<Calculator />);
-  const oneAnchorNode = screen.getByText(/1/i);
-  expect(oneAnchorNode).toHaveTextContent(1);
+  test('"The number 2 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const twoButton = screen.getByRole("button", { name: /2/i });
+    userEvent.click(twoButton);
+    expect(screen.getAllByText(/2/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The number 3 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const threeButton = screen.getByRole("button", { name: /3/i });
+    userEvent.click(threeButton);
+    expect(screen.getAllByText(/3/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The number 4 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const fourButton = screen.getByRole("button", { name: /4/i });
+    userEvent.click(fourButton);
+    expect(screen.getAllByText(/4/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The number 5 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const fiveButton = screen.getByRole("button", { name: /5/i });
+    userEvent.click(fiveButton);
+    expect(screen.getAllByText(/5/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The number 6 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const sixButton = screen.getByRole("button", { name: /6/i });
+    userEvent.click(sixButton);
+    expect(screen.getAllByText(/6/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The number 7 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const sevenButton = screen.getByRole("button", { name: /7/i });
+    userEvent.click(sevenButton);
+    expect(screen.getAllByText(/7/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The number 8 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const eightButton = screen.getByRole("button", { name: /8/i });
+    userEvent.click(eightButton);
+    expect(screen.getAllByText(/8/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The number 9 button correctly displays the number on the screen', () => {
+    render(<Calculator />);
+    const nineButton = screen.getByRole("button", { name: /9/i });
+    userEvent.click(nineButton);
+    expect(screen.getAllByText(/9/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The + button correctly displays the plus on the screen', () => {
+    render(<Calculator />);
+    const plusButton = screen.getByRole("button", { name: "+" });
+    userEvent.click(plusButton);
+    expect(screen.getAllByText("+")[1]).toBeInTheDocument();
+  });
+
+  test('"The - button correctly displays the minus on the screen', () => {
+    render(<Calculator />);
+    const minusButton = screen.getByRole("button", { name: /-/i });
+    userEvent.click(minusButton);
+    expect(screen.getAllByText(/-/i)[1]).toBeInTheDocument();
+  });
+
+  test('"The . button correctly displays the point on the screen', () => {
+    render(<Calculator />);
+    const pointButton = screen.getByRole("button", { name: "." });
+    userEvent.click(pointButton);
+    expect(screen.getAllByText(".")[1]).toBeInTheDocument();
+  });
 });

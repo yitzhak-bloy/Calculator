@@ -89,3 +89,106 @@ describe("Buttons", () => {
     expect(screen.getAllByText(".")[1]).toBeInTheDocument();
   });
 });
+
+describe("Testing of calculation", () => {
+  test("The correct amount is obtained by adding two numbers", () => {
+    render(<Calculator />);
+    const eightButton = screen.getByRole("button", { name: /8/i });
+    const plusButton = screen.getByRole("button", { name: "+" });
+    const nineButton = screen.getByRole("button", { name: /9/i });
+    const equalButton = screen.getByRole("button", { name: /=/i });
+
+    userEvent.click(eightButton);
+    userEvent.click(plusButton);
+    userEvent.click(nineButton);
+    userEvent.click(equalButton);
+
+    expect(screen.getByText(/17/i)).toBeInTheDocument();
+  });
+
+  test("The correct amount is obtained by subtracting a number from a number", () => {
+    render(<Calculator />);
+    const eightButton = screen.getByRole("button", { name: /8/i });
+    const pointButton = screen.getByRole("button", { name: "." });
+    const minusButton = screen.getByRole("button", { name: /-/i });
+    const nineButton = screen.getByRole("button", { name: /9/i });
+    const equalButton = screen.getByRole("button", { name: /=/i });
+
+    userEvent.click(eightButton);
+    userEvent.click(eightButton);
+    userEvent.click(pointButton);
+    userEvent.click(eightButton);
+    userEvent.click(minusButton);
+    userEvent.click(nineButton);
+    userEvent.click(equalButton);
+
+    expect(screen.getByText(/79.8/i)).toBeInTheDocument();
+  });
+
+  test("The correct amount is obtained by multiplying by two numbers", () => {
+    render(<Calculator />);
+    const eightButton = screen.getByRole("button", { name: /8/i });
+    const dualButton = screen.getByRole("button", { name: /✕/i });
+    const nineButton = screen.getByRole("button", { name: /9/i });
+    const equalButton = screen.getByRole("button", { name: /=/i });
+
+    userEvent.click(eightButton);
+    userEvent.click(dualButton);
+    userEvent.click(nineButton);
+    userEvent.click(equalButton);
+
+    expect(screen.getByText(/72/i)).toBeInTheDocument();
+  });
+
+  test("The correct amount is obtained by dividing the number by the number", () => {
+    render(<Calculator />);
+    const eightButton = screen.getByRole("button", { name: /8/i });
+    const divisionButton = screen.getByRole("button", { name: "/" });
+    const nineButton = screen.getByRole("button", { name: /9/i });
+    const equalButton = screen.getByRole("button", { name: /=/i });
+
+    userEvent.click(eightButton);
+    userEvent.click(divisionButton);
+    userEvent.click(nineButton);
+    userEvent.click(equalButton);
+
+    expect(screen.getByText(/0.888/i)).toBeInTheDocument();
+  });
+
+  test("The CLEAR button work", () => {
+    render(<Calculator />);
+    const eightButton = screen.getByRole("button", { name: /8/i });
+    const divisionButton = screen.getByRole("button", { name: "/" });
+    const nineButton = screen.getByRole("button", { name: /9/i });
+    const equalButton = screen.getByRole("button", { name: /=/i });
+    const clearButton = screen.getByRole("button", { name: /clear/i });
+
+    userEvent.click(eightButton);
+    userEvent.click(divisionButton);
+    userEvent.click(nineButton);
+    userEvent.click(equalButton);
+    userEvent.click(clearButton);
+
+    expect(screen.getAllByText(/0/i)[1]).toBeInTheDocument();
+  });
+
+  test("When another exercise begins, the calculation starts from the previous result.", () => {
+    render(<Calculator />);
+    const eightButton = screen.getByRole("button", { name: /8/i });
+    const divisionButton = screen.getByRole("button", { name: "/" });
+    const nineButton = screen.getByRole("button", { name: /9/i });
+    const equalButton = screen.getByRole("button", { name: /=/i });
+    const plusButton = screen.getByRole("button", { name: "+" });
+    const threeButton = screen.getByRole("button", { name: /3/i });
+
+    userEvent.click(eightButton);
+    userEvent.click(divisionButton);
+    userEvent.click(nineButton);
+    userEvent.click(equalButton);
+    userEvent.click(plusButton);
+    userEvent.click(threeButton);
+    userEvent.click(equalButton);
+
+    expect(screen.getByText(/3.888/i)).toBeInTheDocument();
+  });
+});

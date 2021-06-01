@@ -8,7 +8,7 @@ My project for the [Build a calculator challenge](https://www.freecodecamp.org/l
 - HTML5
 - CSS3
 - JavaScript
-- [react](https://reactjs.org/)
+- react
 
 ## Demo
 View project demo at https://yitzhak-bloy.github.io/calculator/.
